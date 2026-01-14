@@ -36,7 +36,7 @@ json = {
                 "content": (
                 "**构建分支**：" + GIT_BRANCH + 
                 "\n**构建用户**：" + BUILD_USER +
-                "\n**固件名称**：" + firmware_name
+                "\n**固件名称**：" + FIRMWARE_NAME
                 ),
                 "tag": "lark_md"
             }
