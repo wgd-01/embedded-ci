@@ -42,7 +42,7 @@ json = {
                     "content": "下载固件",
                     "tag": "lark_md"
                 },
-                "url": os.getenv("FIRMWARE_URL"),
+                "url": os.getenv("DOWNLOAD_URL"),
                 "type": "default",
                 "value": {}
             }],
