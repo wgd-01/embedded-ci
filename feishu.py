@@ -31,8 +31,13 @@ json = {
         },
         "elements": [{
             "tag": "div",
+            firmware_name = os.getenv("FIRMWARE_NAME", "未知")
             "text": {
-                "content": "**构建分支**：" + GIT_BRANCH + "\n**构建用户**：" + BUILD_USER,
+                "content": (
+                "**构建分支**：" + GIT_BRANCH + 
+                "\n**构建用户**：" + BUILD_USER +
+                "\n**固件名称**：" + firmware_name
+                ),
                 "tag": "lark_md"
             }
         }, {
