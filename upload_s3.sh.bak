@@ -25,10 +25,6 @@ if [[ -z "$DEVICE_MODEL" || -z "$FIRMWARE_FILE" ]]; then
   exit 1
 fi
 
-# 可改常量
-COS_BUCKET=${COS_BUCKET:-embedded-test-yanny-1319977552}
-COS_REGION=${COS_REGION:-ap-guangzhou}
-
 
 
 # 第二步：上传
@@ -40,8 +36,3 @@ echo "远程路径 : cos://${COS_BUCKET}/${REMOTE_PATH}"
 coscmd upload "$FIRMWARE_FILE" "$REMOTE_PATH"
 
 echo "====== 上传完成 ======"
-
-# 生成浏览器可直接打开的 https 下载地址
-DOWNLOAD_URL="https://${COS_BUCKET}.cos.${COS_REGION}.myqcloud.com/${REMOTE_PATH}"
-# 写入临时文件，供 Jenkins 下游步骤读取
-echo "DOWNLOAD_URL=${DOWNLOAD_URL}" > download_url.properties
