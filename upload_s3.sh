@@ -4,7 +4,19 @@ set -e
 
 
 DEVICE_MODEL=$1
-FIRMWARE_FILE=$2
+#FIRMWARE_FILE=$2
+FIRMWARE_FILE=$(ls *.bin 2>/dev/null | head -n1)
+
+
+if [[ -z "$FIRMWARE_FILE" ]]; then
+  echo "错误：当前目录未找到 *.bin 固件文件！"
+  exit 2
+fi
+
+if [[ ! -f "$FIRMWARE_FILE" ]]; then
+  echo "错误：文件 $FIRMWARE_FILE 不存在！"
+  exit 3
+fi
 
 # 参数检查
 if [[ -z "$DEVICE_MODEL" || -z "$FIRMWARE_FILE" ]]; then
@@ -13,10 +25,6 @@ if [[ -z "$DEVICE_MODEL" || -z "$FIRMWARE_FILE" ]]; then
   exit 1
 fi
 
-if [[ ! -f "$FIRMWARE_FILE" ]]; then
-  echo "错误：文件 $FIRMWARE_FILE 不存在！"
-  exit 2
-fi
 
 
 # 第二步：上传
