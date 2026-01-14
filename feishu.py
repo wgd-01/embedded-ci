@@ -12,6 +12,7 @@ BUILD_NUMBER = os.getenv("BUILD_NUMBER")
 GIT_BRANCH = os.getenv("GIT_BRANCH")
 BUILD_USER = os.getenv("BUILD_USER")
 
+FIRMWARE_NAME = os.getenv("FIRMWARE_NAME", "未知")
 # currenttime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
 url = 'https://open.feishu.cn/open-apis/bot/v2/hook/6521b95e-3d37-4e91-823f-379c774b0d8a'
@@ -31,7 +32,6 @@ json = {
         },
         "elements": [{
             "tag": "div",
-            firmware_name = os.getenv("FIRMWARE_NAME", "未知")
             "text": {
                 "content": (
                 "**构建分支**：" + GIT_BRANCH + 
