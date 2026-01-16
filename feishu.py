@@ -7,7 +7,9 @@ import os
 JOB_NAME = os.getenv("JOB_NAME", "未知任务")
 BUILD_USER = os.getenv("BUILD_USER", "未知")
 GIT_BRANCH = os.getenv("GIT_BRANCH", "未知")
-BUILD_URL = os.getenv("BUILD_URL", "")
+#BUILD_URL = os.getenv("BUILD_URL", "")
+JOB_URL = os.getenv("JOB_URL")
+BUILD_NUMBER = os.getenv("BUILD_NUMBER")
 BUILD_STATUS = os.getenv("BUILD_STATUS", "FAILURE")
 
 DOWNLOAD_URL = os.getenv("DOWNLOAD_URL")
@@ -56,7 +58,7 @@ if BUILD_STATUS != "SUCCESS":
             "tag": "lark_md",
             "content": "查看构建日志"
         },
-        "url": BUILD_URL/console,
+        "url": JOB_URL + BUILD_NUMBER + "/console",
         "type": "danger"
     })
 
