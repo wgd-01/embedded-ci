@@ -56,7 +56,7 @@ if BUILD_STATUS != "SUCCESS":
             "tag": "lark_md",
             "content": "查看构建日志"
         },
-        "url": BUILD_URL,
+        "url": BUILD_URL/console,
         "type": "danger"
     })
 
